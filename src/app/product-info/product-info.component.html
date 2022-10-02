@@ -1,0 +1,78 @@
+<div class="jumbotron align-center">
+    <div class="container border border-3 border-dark py-3 m-auto">
+        <div class="row mb-4">
+            <label class="col-sm-3 text-center  font-weight-bold" for="productId">Product </label>
+            <div class="col-sm-6">
+                <select type="text" class=" form-control" id="productId" formControlName="productId">
+                    <option value="null">---Select---</option>
+                    <option *ngFor="let ex of productList" [value]="product?.id">
+                        {{product?.name}}
+                    </option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-secondary" (click)="getProduct()">Get</button>
+        </div>
+        <div >
+            <div class="row">
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6  font-weight-bold ">Product Name : </div>
+                        <div class="col-sm-6 ">{{product?.name}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6 font-weight-bold">Short Description : </div>
+                        <div class="col-sm-6">{{product?.shortDes}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6 font-weight-bold">Detail Description : </div>
+                        <div class="col-sm-6">{{product?.detail}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6 font-weight-bold">Category : </div>
+                        <div class="col-sm-6">{{product?.category}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6 font-weight-bold">Starting Price : </div>
+                        <div class="col-sm-6">{{product?.startPrice}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                    <div class="row">
+                        <div class="col-sm-6 font-weight-bold">Bid End Date : </div>
+                        <div class="col-sm-6">{{product?.bidEndDate}}</div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="text-center my-2 ">Bid Detail</h4>
+            <div class="p-0 pl-4 mx-0 row mt-2 table-responsive text-center">
+                <table class=" col-sm-11 table table-bordered">
+                    <thead>
+                        <tr class="row">
+                            <th class="col-sm-3">Bid Amount </th>
+                            <th class="col-sm-3">Name</th>
+                            <th class="col-sm-3">e-mail</th>
+                            <th class="col-sm-3">Phone No</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let bid of product?.bidDetails">
+                        <tr class="row">
+                            <td class="col-sm-3">{{bid?.amount}}</td>
+                            <td class="col-sm-3">{{bid?.name}}</td>
+                            <td class="col-sm-3">{{bid?.email}}</td>
+                            <td class="col-sm-3">{{bid?.phone}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
